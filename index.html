@@ -25,7 +25,7 @@
     color: var(--white);
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    line-height: 1.85; /* Optimized for dyslexia-friendly reading */
+    line-height: 1.85; /* Dyslexia-friendly line height */
     letter-spacing: 0.03em;
   }
 
@@ -57,104 +57,117 @@
   nav {
     position: sticky; top: 0; z-index: 100; background: rgba(8,8,8,0.98);
     backdrop-filter: blur(10px); border-bottom: 1px solid rgba(204,17,17,0.3);
-    padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 1.5rem; display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: var(--white); text-decoration: none; }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--white); text-decoration: none; }
   .nav-logo span { color: var(--red); }
-  .nav-links { display: flex; gap: 1rem; list-style: none; align-items: center; }
-  .nav-links a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-links { display: flex; gap: 0.8rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; }
   
-  /* HIGH VISIBILITY LANG TOGGLE */
   .lang-toggle-btn {
-    background: var(--red); 
-    border: 1px solid var(--white); 
-    color: var(--white);
-    padding: 0.4rem 1rem; 
-    border-radius: 20px; 
-    font-size: 0.75rem; 
-    font-weight: 800;
-    cursor: pointer; 
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(204,17,17,0.4);
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    background: var(--red); border: 1px solid var(--white); color: var(--white);
+    padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.65rem; font-weight: 800;
+    cursor: pointer; box-shadow: 0 0 10px rgba(204,17,17,0.4);
   }
-  .lang-toggle-btn:hover { background: var(--red-bright); transform: scale(1.05); }
-
-  .nav-vote-btn { 
-    background: var(--white); color: var(--red) !important; padding: 0.5rem 1rem; 
-    border-radius: 4px; transition: transform 0.3s; font-weight: 800 !important;
-  }
-  .nav-vote-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
   /* ── HERO ── */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; position: relative; padding: 2rem; text-align: center;
+    justify-content: center; padding: 1.5rem; text-align: center;
   }
   .profile-container {
-    width: 180px; height: 180px; margin-bottom: 1.5rem; border: 2px solid var(--red);
+    width: 160px; height: 160px; margin-bottom: 1.5rem; border: 2px solid var(--red);
     border-radius: 50%; overflow: hidden; background: var(--deep);
-    box-shadow: 0 0 30px rgba(204,17,17,0.2); position: relative; z-index: 5;
+    box-shadow: 0 0 30px rgba(204,17,17,0.2);
   }
   .profile-container img { width: 100%; height: 100%; object-fit: cover; }
 
   .hero-name {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 12vw, 7.5rem);
-    line-height: 0.9; margin-bottom: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 15vw, 7rem);
+    line-height: 0.9; margin-bottom: 0.5rem; width: 100%;
   }
   .hero-name span { color: var(--red); }
   .hero-role {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem);
-    letter-spacing: 0.2em; color: var(--red); margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 5vw, 2.2rem);
+    letter-spacing: 0.2em; color: var(--red); margin-bottom: 1.5rem;
   }
+
+  /* ── MAIN VOTE CTA ── */
+  .main-vote-area {
+    width: 100%; max-width: 500px; margin: 1rem 0 2rem;
+  }
+  .vote-cta-btn {
+    display: block; background: var(--white); color: var(--red);
+    padding: 1.2rem; text-decoration: none; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.15em; border-radius: 8px;
+    font-size: 1.1rem; box-shadow: 0 0 25px rgba(255,255,255,0.2), 0 10px 40px rgba(204,17,17,0.3);
+    transition: 0.3s; border: 2px solid var(--red);
+  }
+  .vote-cta-btn:hover { transform: scale(1.03); background: var(--red); color: var(--white); }
 
   /* ── VOTE GUIDANCE BOX ── */
   .vote-guide-box {
-    max-width: 600px; background: rgba(204,17,17,0.05); border: 1px dashed var(--red);
-    padding: 1.5rem; margin: 2rem auto; text-align: left; border-radius: 8px;
+    width: 100%; max-width: 500px; background: rgba(204,17,17,0.05); border: 1px dashed var(--red);
+    padding: 1.2rem; text-align: left; border-radius: 12px; margin-bottom: 2rem;
   }
   .vote-guide-box h3 { 
     font-family: 'Bebas Neue', sans-serif; color: var(--red); 
-    font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(204,17,17,0.2);
+    font-size: 1.3rem; margin-bottom: 0.8rem; border-bottom: 1px solid rgba(204,17,17,0.2);
   }
-  .vote-step { margin-bottom: 0.8rem; display: flex; gap: 1rem; font-size: 0.9rem; }
+  .vote-step { margin-bottom: 0.8rem; display: flex; gap: 0.8rem; font-size: 0.85rem; line-height: 1.4; }
   .step-num { 
-    background: var(--red); color: white; width: 24px; height: 24px; 
+    background: var(--red); color: white; width: 22px; height: 22px; 
     border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-    flex-shrink: 0; font-weight: bold; font-size: 0.75rem;
+    flex-shrink: 0; font-weight: bold; font-size: 0.7rem;
   }
 
-  /* ── CYBERSECURITY BRIEF ── */
+  /* ── SECTIONS ── */
+  section { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+  .section-label { color: var(--red); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1.5rem; line-height: 1; }
+
+  .manifesto-item {
+    background: var(--deep); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--red);
+  }
+  .manifesto-item h4 { color: var(--red); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .manifesto-item p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+  /* ── RESOURCE DROPDOWNS ── */
+  .resource-category { margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: var(--deep); }
+  .resource-header { 
+    padding: 1.2rem; background: #161616; display: flex; justify-content: space-between; 
+    align-items: center; cursor: pointer; transition: 0.3s;
+  }
+  .resource-header:hover { background: #222; }
+  .resource-header h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; }
+  .resource-content { display: none; padding: 1rem; background: var(--deep); border-top: 1px solid rgba(255,255,255,0.05); }
+  .resource-content.active { display: block; }
+  
+  .resource-link-list { list-style: none; }
+  .resource-link-list li { margin-bottom: 0.8rem; }
+  .resource-link-list a { 
+    display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; 
+    font-size: 0.9rem; transition: 0.2s; padding: 0.5rem; border-radius: 4px;
+  }
+  .resource-link-list a:hover { background: rgba(204,17,17,0.15); color: var(--red-bright); }
+  .resource-link-list a::before { content: "→"; color: var(--red); }
+
   .security-alert {
     background: rgba(255,255,255,0.03); border-left: 3px solid var(--red);
-    padding: 1.5rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--grey);
+    padding: 1rem; margin-bottom: 2rem; font-size: 0.75rem; color: var(--grey);
   }
-  .security-alert strong { color: var(--white); display: block; margin-bottom: 0.5rem; }
 
-  /* ── BUTTONS ── */
-  .cta-btn {
-    display: inline-block; background: var(--red); color: white; 
-    padding: 1rem 2rem; text-decoration: none; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.15em; transition: 0.3s;
-    margin-top: 1rem; border: none; cursor: pointer;
+  footer { padding: 3rem 1.5rem; text-align: center; color: var(--grey); font-size: 0.7rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+  /* MOBILE SPECIFIC */
+  @media (max-width: 480px) {
+    nav { padding: 0.6rem 1rem; }
+    .nav-links { gap: 0.5rem; }
+    .nav-links a { font-size: 0.6rem; }
+    .hero { padding: 1rem; justify-content: flex-start; padding-top: 10vh; }
+    .profile-container { width: 140px; height: 140px; }
+    .vote-cta-btn { font-size: 1rem; padding: 1rem; }
   }
-  .cta-btn:hover { background: var(--red-bright); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(204,17,17,0.3); }
-
-  /* ── VIEW TIME & STATS ── */
-  .view-time { margin-top: 2rem; font-size: 0.75rem; color: var(--grey); letter-spacing: 0.1em; }
-  #current-time { color: var(--red); font-weight: bold; }
-  .visitor-stats { margin-top: 1rem; opacity: 0.7; transition: opacity 0.3s; }
-  .visitor-stats:hover { opacity: 1; }
-
-  /* ── SECTION STYLES ── */
-  section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-  .section-label { color: var(--red); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
-  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 2rem; }
-
-  footer { padding: 4rem 2rem; text-align: center; color: var(--grey); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); }
 </style>
 </head>
 <body>
@@ -162,16 +175,9 @@
 <nav>
   <a href="#home" class="nav-logo"><span>Z</span>HIXING REN</a>
   <ul class="nav-links">
-    <li><a href="#home"><span class="en">Home</span><span class="zh">主页</span></a></li>
-    <li><a href="#manifesto"><span class="en">Manifesto</span><span class="zh">竞选宣言</span></a></li>
-    <li><a href="#resources"><span class="en">Resources</span><span class="zh">学生资源</span></a></li>
-    <li>
-      <button class="lang-toggle-btn" onclick="toggleLanguage()">
-        <span class="en">中文版</span>
-        <span class="zh">ENGLISH</span>
-      </button>
-    </li>
-    <li><a href="https://su.nottingham.ac.uk/elections/vote/7374" target="_blank" class="nav-vote-btn"><span class="en">VOTE 🗳️</span><span class="zh">投票 🗳️</span></a></li>
+    <li><a href="#manifesto"><span class="en">Plan</span><span class="zh">政策</span></a></li>
+    <li><a href="#resources"><span class="en">Help</span><span class="zh">资源</span></a></li>
+    <li><button class="lang-toggle-btn" onclick="toggleLanguage()"><span class="en">中文</span><span class="zh">EN</span></button></li>
   </ul>
 </nav>
 
@@ -181,54 +187,52 @@
     <div class="profile-container">
       <img src="profile.jpg" alt="Zhixing Ren">
     </div>
+    
     <div class="hero-content">
-      <p style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--grey); letter-spacing:0.2em; margin-bottom:1rem;">may i be the moon</p>
+      <p style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--grey); letter-spacing:0.15em; font-size: 0.9rem; margin-bottom: 0.5rem;">may i be the moon</p>
       <h1 class="hero-name"><span>Z</span>HI<span>X</span>ING <span>R</span>EN</h1>
-      <p class="hero-role">
-        <span class="en">VP Education 2026</span>
-        <span class="zh">2026 教育副主席</span>
-      </p>
+      <p class="hero-role"><span class="en">VP Education 2026</span><span class="zh">2026 教育副主席候选人</span></p>
       
-      <!-- Guidance Section -->
+      <!-- CENTERED VOTE BUTTON -->
+      <div class="main-vote-area">
+        <a href="https://su.nottingham.ac.uk/elections/list" target="_blank" class="vote-cta-btn">
+          <span class="en">VOTE FOR ZHIXING 🗳️</span>
+          <span class="zh">为 ZHIXING 投票 🗳️</span>
+        </a>
+      </div>
+
+      <!-- VOTE GUIDANCE -->
       <div class="vote-guide-box">
-        <h3 class="en">STV Voting Guide 🗳️</h3>
+        <h3 class="en">How to Vote (STV) 🗳️</h3>
         <h3 class="zh">STV 投票指南 🗳️</h3>
         
         <div class="vote-step">
           <div class="step-num">1</div>
-          <p class="en"><strong>Step 1:</strong> Find "Zhixing Ren" and mark <strong>'1'</strong> for top priority.</p>
-          <p class="zh"><strong>步骤 1:</strong> 找到 "Zhixing Ren" 并标记 <strong>'1'</strong> 作为首选。</p>
+          <p class="en">Find <strong>"VP Education"</strong>, click vote, select <strong>"Zhixing Ren"</strong> and mark <strong>'1'</strong>.</p>
+          <p class="zh">找到 <strong>"VP Education"</strong>，点击投票，选择 <strong>"Zhixing Ren"</strong> 并标记 <strong>'1'</strong>。</p>
         </div>
         <div class="vote-step">
           <div class="step-num">2</div>
-          <p class="en"><strong>Step 2:</strong> Mark other candidates as '2', '3', etc., in order of preference.</p>
-          <p class="zh"><strong>步骤 2:</strong> 按喜好顺序将其他候选人标记为 '2'、'3' 等。</p>
+          <p class="en">Mark other candidates as '2', '3' etc. in order of preference.</p>
+          <p class="zh">按喜好顺序将其他候选人标记为 '2'、'3' 等。</p>
         </div>
         <div class="vote-step">
           <div class="step-num">3</div>
-          <p class="en"><strong>Step 3:</strong> Click "Submit". You can vote for as many as you wish!</p>
-          <p class="zh"><strong>步骤 3:</strong> 点击 "Submit"。你可以根据意愿为多位候选人排序。</p>
+          <p class="en">Click <strong>"Submit"</strong>. Vote for as many as you wish!</p>
+          <p class="zh">点击 <strong>"Submit"</strong>。你可以为多位候选人排序。</p>
         </div>
       </div>
 
-      <a href="https://su.nottingham.ac.uk/elections/vote/7374" target="_blank" class="cta-btn">
-        <span class="en">Cast Your Vote Here</span>
-        <span class="zh">由此进入投票通道</span>
-      </a>
+      <p style="font-size: 0.75rem; color: var(--grey);">
+        <span class="en">Web View Time: </span><span class="zh">访问时间：</span><span id="current-time" style="color:var(--red); font-weight:700;">--:--:--</span>
+      </p>
       
-      <div class="view-time">
-        <span class="en">Web View Time: </span><span class="zh">网页浏览时间：</span><span id="current-time">--:--:--</span>
-        <div class="visitor-stats">
-          <img src="https://hitwebcounter.com/counter/counter.php?page=zhixing_election_2026&style=0005&nbdigits=5&type=page&initCount=0" title="Visitor Counter" Alt="web counter" border="0" style="height: 20px; filter: grayscale(1) brightness(1.5);">
-          <p style="font-size: 0.6rem; margin-top: 5px;" class="en">LIVE VISITOR COUNT</p>
-          <p style="font-size: 0.6rem; margin-top: 5px;" class="zh">实时访问统计</p>
-        </div>
-      </div>
-
-      <p style="margin-top: 2rem;">
-        <a href="https://instagram.com/zxr_uon" target="_blank" style="color:var(--grey); text-decoration:none; font-size:0.8rem;">
-          📸 Follow my journey on Instagram @zxr_uon
+      <p style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 5px;">
+        <a href="https://instagram.com/zxr_uon" target="_blank" style="color:var(--grey); text-decoration:none; font-size:0.75rem;">
+          📸 Follow on Instagram @zxr_uon
         </a>
+        <span style="color:var(--grey); font-size:0.75rem;">💬 WeChat: <strong>PIEZS01</strong></span>
+        <span style="color:var(--grey); font-size:0.75rem;">✉️ Email: <strong>eeyzr1@nottingham.ac.uk</strong></span>
       </p>
     </div>
   </div>
@@ -239,77 +243,111 @@
   <section>
     <div class="section-label"><span class="en">My Promise</span><span class="zh">我的承诺</span></div>
     <h2 class="section-title">
-        <span class="en">Accessible. Supported. Heard.</span>
+        <span class="en">Education should work for everyone.</span>
         <span class="zh">为华生发声，照亮前行之路</span>
     </h2>
     
-    <div style="background:var(--deep); padding:2rem; border-radius:8px; margin-bottom:2rem; border-left: 2px solid var(--red);">
-      <h4 style="color:var(--red); margin-bottom:1rem; font-family: 'Montserrat', sans-serif;">
-          <span class="en">1. Making Policy Accessible</span><span class="zh">1. 让政策通俗易懂</span>
-      </h4>
-      <p style="font-size:0.95rem; color:var(--grey);">
-          <span class="en">I will push for clearer communication on Extenuating Circumstances (EC) and AI policies, focusing on international students who are often disadvantaged by complex language.</span>
-          <span class="zh">我将推动有关特殊情况申请 (EC) 和 AI 政策的更清晰沟通，重点关注因复杂的学术语言而处于劣势的国际学生。</span>
-      </p>
+    <div class="manifesto-item">
+      <h4><span class="en">1. Making Policy Accessible</span><span class="zh">1. 让政策通俗易懂</span></h4>
+      <p><span class="en">Policies like Extenuating Circumstances and AI Declaration exist to protect students — but only if they understand them. I will push for clearer communication, particularly for international students disadvantaged by complex academic language.</span><span class="zh">推动 EC 和 AI 政策的清晰沟通，重点关注国际学生。</span></p>
     </div>
 
-    <div style="background:var(--deep); padding:2rem; border-radius:8px; margin-bottom:2rem; border-left: 2px solid var(--red);">
-      <h4 style="color:var(--red); margin-bottom:1rem; font-family: 'Montserrat', sans-serif;">
-          <span class="en">2. Bridging the AI Gap</span><span class="zh">2. 弥合 AI 使用差距</span>
-      </h4>
-      <p style="font-size:0.95rem; color:var(--grey);">
-          <span class="en">Using AI responsibly to manage time and preview materials. I want to be a student-University bridge, sharing what works for self-quizzing and previewing.</span>
-          <span class="zh">负责任地利用 AI 进行时间管理和材料预览。我想成为学生与大学之间的桥梁，分享有效的自测与预习方案。</span>
-      </p>
+    <div class="manifesto-item">
+      <h4><span class="en">2. Bridging the AI Gap</span><span class="zh">2. 弥合 AI 使用差距</span></h4>
+      <p><span class="en">The University has pushed AI forward, but how to use it responsibly remains unclear. I want to share my approach: using AI to manage time, preview material, and check work against marking schemes. I will be your student-University bridge.</span><span class="zh">负责任地利用 AI 进行时间管理和材料预览。</span></p>
     </div>
 
-    <div style="background:var(--deep); padding:2rem; border-radius:8px; margin-bottom:2rem; border-left: 2px solid var(--red);">
-      <h4 style="color:var(--red); margin-bottom:1rem; font-family: 'Montserrat', sans-serif;">
-          <span class="en">3. Supporting Students Who Struggle Quietly</span><span class="zh">3. 支持默默挣扎的学生</span>
-      </h4>
-      <p style="font-size:0.95rem; color:var(--grey);">
-          <span class="en">I took an interruption. For two years I was a student with special status — and I found my way through. Once you've stood in the heavy rain, you want to share your umbrella with the next person who needs it.</span>
-          <span class="zh">我曾办理过休学。在这所大学里，我有两年是以特殊身份就读的学生——最终我熬过来了。一旦你曾在暴雨中站立过，你就会想把伞分享给下一个需要它的人。</span>
-      </p>
+    <div class="manifesto-item">
+      <h4><span class="en">3. Supporting Students Who Struggle Quietly</span><span class="zh">3. 支持默默挣扎的学生</span></h4>
+      <p><span class="en">I took an interruption for two years. I understand the struggle. Once you've stood in the heavy rain, you want to share your umbrella with the next person who needs it. I will ensure proactive support reaches you before the breaking point.</span><span class="zh">我曾休学，我熬过来了。现在我想为你撑伞。</span></p>
     </div>
 
-    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red);">
-        <span class="en">Back Home</span><span class="zh">返回首页</span>
-    </a>
+    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red); font-size: 0.8rem; padding: 0.8rem 1.5rem;">Back Home</a>
   </section>
 </div>
 
 <!-- RESOURCES PAGE -->
 <div id="resources" class="page">
   <section>
-    <div class="section-label"><span class="en">Student Support Hub</span><span class="zh">学生支持中心</span></div>
-    <h2 class="section-title">
-        <span class="en">Verified Links & Help</span><span class="zh">官方核实链接与帮助</span>
-    </h2>
+    <div class="section-label"><span class="en">Faithful Support Hub</span><span class="zh">官方支持中心</span></div>
+    <h2 class="section-title"><span class="en">Verified Help Hub</span><span class="zh">官方帮助链接</span></h2>
     
     <div class="security-alert">
-      <strong>🛡️ <span class="en">Cybersecurity & Information Integrity</span><span class="zh">网络安全与信息完整性</span></strong>
-      <span class="en">Information gathered by Zhixing: All links below lead directly to official University of Nottingham or Student Union web pages. For your safety, always verify URLs and do not enter sensitive data into unofficial or dangerous web links.</span>
-      <span class="zh">由 Zhixing 整理的信息：以下所有链接均直达诺丁汉大学官方或学生会网页。为了您的安全，请务必核实 URL，切勿在非官方或危险的链接中输入个人敏感信息。</span>
+      <strong>🛡️ <span class="en">Authentic Verification</span><span class="zh">真实性核实</span></strong>
+      <span class="en">Gathered by Zhixing: All links lead directly to official UoN pages. Please avoid unverified third-party links for your cybersecurity.</span>
+      <span class="zh">由 Zhixing 整理：所有链接均直达官方页面。请务必核实 URL，保护网络安全。</span>
     </div>
 
-    <p style="margin-bottom: 1.5rem;"><span class="en">Direct access to official University services:</span><span class="zh">直达大学官方服务：</span></p>
-    <ul style="list-style:none; display:grid; gap:1.2rem;">
-      <li><a href="https://www.nottingham.ac.uk/studentservices/services/extenuating-circumstances.aspx" target="_blank" style="color:var(--white); text-decoration:none; display:block; background:var(--deep); padding:1.2rem; border-left:3px solid var(--red); font-size: 0.95rem;">→ <span class="en">Official EC Policy & Guidance</span><span class="zh">官方 EC 政策与指南</span> ↗</a></li>
-      <li><a href="https://www.nottingham.ac.uk/studyingeffectively/ai/ai-assessment.aspx" target="_blank" style="color:var(--white); text-decoration:none; display:block; background:var(--deep); padding:1.2rem; border-left:3px solid var(--red); font-size: 0.95rem;">→ <span class="en">AI Academic Integrity Guidelines</span><span class="zh">AI 学术诚信准则</span> ↗</a></li>
-      <li><a href="https://www.nottingham.ac.uk/studentservices/services/libraries.aspx" target="_blank" style="color:var(--white); text-decoration:none; display:block; background:var(--deep); padding:1.2rem; border-left:3px solid var(--red); font-size: 0.95rem;">→ <span class="en">Library Services & Study Spaces</span><span class="zh">图书馆服务与学习空间</span> ↗</a></li>
-      <li><a href="https://www.nottingham.ac.uk/student-living/accommodation/index.aspx" target="_blank" style="color:var(--white); text-decoration:none; display:block; background:var(--deep); padding:1.2rem; border-left:3px solid var(--red); font-size: 0.95rem;">→ <span class="en">Accommodation Portal</span><span class="zh">学生住宿申请入口</span> ↗</a></li>
-      <li><a href="https://www.nottingham.ac.uk/counselling/" target="_blank" style="color:var(--white); text-decoration:none; display:block; background:var(--deep); padding:1.2rem; border-left:3px solid var(--red); font-size: 0.95rem;">→ <span class="en">University Mental Health Support</span><span class="zh">大学心理健康支持</span> ↗</a></li>
-    </ul>
+    <div class="resource-links">
+      
+      <!-- EC DROPDOWN -->
+      <div class="resource-category">
+        <div class="resource-header" onclick="toggleDropdown('ec-content')">
+          <h4><span class="en">Extenuating Circumstances (EC)</span><span class="zh">特殊情况申请 (EC)</span></h4>
+          <span>▼</span>
+        </div>
+        <div id="ec-content" class="resource-content">
+          <ul class="resource-link-list">
+            <li><a href="https://www.nottingham.ac.uk/studentservices/servicedetails/extenuating-circumstances/extenuating-circumstances-procedure.aspx" target="_blank">EC Procedure</a></li>
+            <li><a href="https://www.nottingham.ac.uk/studentservices/documents/extenuating-circumstances/new-ec-policy-flowchart-sep-25.pdf" target="_blank">New Policy Flowchart (Sep 2025)</a></li>
+            <li><a href="https://www.nottingham.ac.uk/studentservices/services/extenuating-circumstances.aspx" target="_blank">Main EC Support Page</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red); margin-top:2rem;">
-        <span class="en">Back Home</span><span class="zh">返回首页</span>
-    </a>
+      <!-- AI DROPDOWN -->
+      <div class="resource-category">
+        <div class="resource-header" onclick="toggleDropdown('ai-content')">
+          <h4><span class="en">AI Guidelines</span><span class="zh">AI 学术准则</span></h4>
+          <span>▼</span>
+        </div>
+        <div id="ai-content" class="resource-content">
+          <ul class="resource-link-list">
+            <li><a href="https://www.nottingham.ac.uk/studyingeffectively/ai/ai-assessment.aspx" target="_blank">Using AI in Assessment</a></li>
+            <li><a href="https://www.nottingham.ac.uk/studyingeffectively/ai/ai-support.aspx" target="_blank">AI Support for Study</a></li>
+            <li><a href="https://www.nottingham.ac.uk/qualitymanual/assessment-awards-and-deg-classification/pol-academic-misconduct.aspx" target="_blank">Academic Integrity Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LIBRARY DROPDOWN -->
+      <div class="resource-category">
+        <div class="resource-header" onclick="toggleDropdown('lib-content')">
+          <h4><span class="en">Library & Study Plans</span><span class="zh">图书馆与支持计划</span></h4>
+          <span>▼</span>
+        </div>
+        <div id="lib-content" class="resource-content">
+          <ul class="resource-link-list">
+            <li><a href="https://www.nottingham.ac.uk/studentservices/services/libraries.aspx" target="_blank">Library Services Overview</a></li>
+            <li><a href="https://www.nottingham.ac.uk/library/studying/study-spaces/index.aspx" target="_blank">Book Study Space</a></li>
+            <li><a href="https://www.nottingham.ac.uk/studentservices/servicedetails/disability-support-services/support-for-your-studies/reasonable-adjustments-and-support-plans.aspx" target="_blank">Support Plans (RSA)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HEALTH & LIVING DROPDOWN -->
+      <div class="resource-category">
+        <div class="resource-header" onclick="toggleDropdown('health-content')">
+          <h4><span class="en">Mental Health & Living</span><span class="zh">心理健康与生活</span></h4>
+          <span>▼</span>
+        </div>
+        <div id="health-content" class="resource-content">
+          <ul class="resource-link-list">
+            <li><a href="https://www.nottingham.ac.uk/counselling/" target="_blank">Counselling Service</a></li>
+            <li><a href="https://www.nottingham.ac.uk/student-living/accommodation/index.aspx" target="_blank">Accommodation Portal</a></li>
+            <li><a href="https://www.nottingham.ac.uk/studentservices/wellbeing/emergency-support.aspx" target="_blank">Emergency & Crisis Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red); font-size: 0.8rem; padding: 0.8rem 1.5rem; margin-top: 2rem;">Back Home</a>
   </section>
 </div>
 
 <footer>
-  <p>Zhixing Ren — VP Education 2026 Candidate</p>
+  <p>Zhixing Ren — VP Education 2026</p>
   <p>su.nottingham.ac.uk | Be the moon.</p>
 </footer>
 
@@ -323,26 +361,27 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.querySelector(hash);
     if (target) target.classList.add('active');
-    
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === hash);
-    });
     window.scrollTo(0, 0);
   }
 
   function updateTime() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
     const timeDisplay = document.getElementById('current-time');
-    if(timeDisplay) timeDisplay.textContent = timeString;
+    if(timeDisplay) timeDisplay.textContent = now.toLocaleTimeString('en-GB', { hour12: false });
+  }
+
+  function toggleDropdown(id) {
+    const content = document.getElementById(id);
+    const isOpen = content.style.display === 'block';
+    // Close others
+    document.querySelectorAll('.resource-content').forEach(c => c.style.display = 'none');
+    // Toggle current
+    content.style.display = isOpen ? 'none' : 'block';
   }
 
   setInterval(updateTime, 1000);
   window.addEventListener('hashchange', handleRoute);
-  window.addEventListener('load', () => {
-    handleRoute();
-    updateTime();
-  });
+  window.addEventListener('load', () => { handleRoute(); updateTime(); });
 </script>
 
 </body>
