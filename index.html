@@ -74,22 +74,49 @@
   .hero {
     min-height: 100vh; display: flex; flex-direction: column; align-items: center;
     justify-content: center; padding: 1.5rem; text-align: center;
+    position: relative; overflow: hidden; /* Added to contain the background moon */
   }
+  
+  /* ── THE BREATHING MOON ── */
+  .moon {
+    width: 280px; height: 280px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, var(--moon) 0%, #E8C870 40%, #B8922A 80%, #7A5A10 100%);
+    box-shadow: 0 0 60px rgba(247,232,192,0.15), 0 0 120px rgba(247,232,192,0.06), inset -30px -20px 60px rgba(0,0,0,0.5);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    opacity: 0.12; animation: moonPulse 8s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes moonPulse {
+    0%, 100% { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.18; transform: translate(-50%, -50%) scale(1.03); }
+  }
+
   .profile-container {
     width: 160px; height: 160px; margin-bottom: 1.5rem; border: 2px solid var(--red);
     border-radius: 50%; overflow: hidden; background: var(--deep);
     box-shadow: 0 0 30px rgba(204,17,17,0.2);
+    position: relative; z-index: 2; /* Keep above moon */
   }
   .profile-container img { width: 100%; height: 100%; object-fit: cover; }
 
   .hero-name {
     font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 15vw, 7rem);
     line-height: 0.9; margin-bottom: 0.5rem; width: 100%;
+    position: relative; z-index: 2;
   }
   .hero-name span { color: var(--red); }
   .hero-role {
     font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 5vw, 2.2rem);
     letter-spacing: 0.2em; color: var(--red); margin-bottom: 1.5rem;
+    position: relative; z-index: 2;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* ── MAIN VOTE CTA ── */
@@ -126,11 +153,36 @@
   .section-label { color: var(--red); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
   .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 8vw, 3rem); margin-bottom: 1.5rem; line-height: 1; }
 
-  .manifesto-item {
-    background: var(--deep); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--red);
+  /* ── PREVIOUS EDITION MANIFESTO GRID ── */
+  .manifesto-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    gap: 1.5px; 
+    margin-top: 2rem; 
+    background: rgba(204,17,17,0.15); 
   }
-  .manifesto-item h4 { color: var(--red); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; }
-  .manifesto-item p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+  .manifesto-card { 
+    background: var(--deep); 
+    padding: 2.5rem 2rem; 
+    position: relative; 
+    overflow: hidden; 
+    transition: background 0.3s ease; 
+  }
+  .manifesto-card:hover { background: #161616; }
+  .manifesto-card::before { 
+    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; 
+    background: var(--red); transition: height 0.4s ease; 
+  }
+  .manifesto-card:hover::before { height: 100%; }
+  .card-num { 
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; 
+    color: rgba(204,17,17,0.15); line-height: 1; margin-bottom: 1rem; 
+  }
+  .card-title { 
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; 
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 0.8rem; 
+  }
+  .card-text { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.75); font-weight: 300; }
 
   /* ── RESOURCE DROPDOWNS ── */
   .resource-category { margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: var(--deep); }
@@ -184,11 +236,14 @@
 <!-- HOME PAGE -->
 <div id="home" class="page active">
   <div class="hero">
-    <div class="profile-container">
-      <img src="profile.jpg" alt="Zhixing Ren">
-    </div>
-    
+    <!-- RESTORED BREATHING MOON -->
+    <div class="moon"></div>
+
     <div class="hero-content">
+      <div class="profile-container">
+        <img src="profile.jpg" alt="Zhixing Ren">
+      </div>
+      
       <p style="font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--grey); letter-spacing:0.15em; font-size: 0.9rem; margin-bottom: 0.5rem;">may i be the moon</p>
       <h1 class="hero-name"><span>Z</span>HI<span>X</span>ING <span>R</span>EN</h1>
       <p class="hero-role"><span class="en">VP Education 2026</span><span class="zh">2026 教育副主席候选人</span></p>
@@ -238,7 +293,7 @@
   </div>
 </div>
 
-<!-- MANIFESTO PAGE -->
+<!-- MANIFESTO PAGE (RESTORED TO PREVIOUS GRID EDITION) -->
 <div id="manifesto" class="page">
   <section>
     <div class="section-label"><span class="en">My Promise</span><span class="zh">我的承诺</span></div>
@@ -247,22 +302,39 @@
         <span class="zh">为华生发声，照亮前行之路</span>
     </h2>
     
-    <div class="manifesto-item">
-      <h4><span class="en">1. Making Policy Accessible</span><span class="zh">1. 让政策通俗易懂</span></h4>
-      <p><span class="en">Policies like Extenuating Circumstances and AI Declaration exist to protect students — but only if they understand them. I will push for clearer communication, particularly for international students disadvantaged by complex academic language.</span><span class="zh">推动 EC 和 AI 政策的清晰沟通，重点关注国际学生。</span></p>
+    <div class="manifesto-grid">
+      <!-- Item 01 -->
+      <div class="manifesto-card">
+        <div class="card-num">01</div>
+        <div class="card-title"><span class="en">Making Policy Accessible</span><span class="zh">让政策通俗易懂</span></div>
+        <p class="card-text">
+          <span class="en">Policies like Extenuating Circumstances and AI Declaration exist to protect students — but only if they understand them. I will push for clearer communication, particularly for international students disadvantaged by complex academic language.</span>
+          <span class="zh">推动 EC 和 AI 政策的清晰沟通，重点关注国际学生。</span>
+        </p>
+      </div>
+
+      <!-- Item 02 -->
+      <div class="manifesto-card">
+        <div class="card-num">02</div>
+        <div class="card-title"><span class="en">Bridging the AI Gap</span><span class="zh">弥合 AI 使用差距</span></div>
+        <p class="card-text">
+          <span class="en">The University has pushed AI forward, but how to use it responsibly remains unclear. I want to share my approach: using AI to manage time, preview material, and check work against marking schemes. I will be your student-University bridge.</span>
+          <span class="zh">负责任地利用 AI 进行时间管理和材料预览。</span>
+        </p>
+      </div>
+
+      <!-- Item 03 -->
+      <div class="manifesto-card">
+        <div class="card-num">03</div>
+        <div class="card-title"><span class="en">Supporting Quiet Struggles</span><span class="zh">支持默默挣扎的学生</span></div>
+        <p class="card-text">
+          <span class="en">I took an interruption for two years. I understand the struggle. Once you've stood in the heavy rain, you want to share your umbrella with the next person who needs it. I will ensure proactive support reaches you before the breaking point.</span>
+          <span class="zh">我曾休学，我熬过来了。现在我想为你撑伞。</span>
+        </p>
+      </div>
     </div>
 
-    <div class="manifesto-item">
-      <h4><span class="en">2. Bridging the AI Gap</span><span class="zh">2. 弥合 AI 使用差距</span></h4>
-      <p><span class="en">The University has pushed AI forward, but how to use it responsibly remains unclear. I want to share my approach: using AI to manage time, preview material, and check work against marking schemes. I will be your student-University bridge.</span><span class="zh">负责任地利用 AI 进行时间管理和材料预览。</span></p>
-    </div>
-
-    <div class="manifesto-item">
-      <h4><span class="en">3. Supporting Students Who Struggle Quietly</span><span class="zh">3. 支持默默挣扎的学生</span></h4>
-      <p><span class="en">I took an interruption for two years. I understand the struggle. Once you've stood in the heavy rain, you want to share your umbrella with the next person who needs it. I will ensure proactive support reaches you before the breaking point.</span><span class="zh">我曾休学，我熬过来了。现在我想为你撑伞。</span></p>
-    </div>
-
-    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red); font-size: 0.8rem; padding: 0.8rem 1.5rem;">Back Home</a>
+    <a href="#home" class="cta-btn" style="background:var(--deep); border:1px solid var(--red); font-size: 0.8rem; padding: 0.8rem 1.5rem; margin-top: 3rem;">Back Home</a>
   </section>
 </div>
 
